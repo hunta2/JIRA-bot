@@ -1,0 +1,78 @@
+# Generic metadata about this project
+name: jira-bot
+prefect-version: 2.16.9
+
+# the definitions section allows you to define reusable components for your deployments
+definitions:
+  image_name: &image_name "trias-jira-bot"
+  registry_url: &registry_url "460093871196.dkr.ecr.eu-central-1.amazonaws.com"
+  image_url: &image_url "460093871196.dkr.ecr.eu-central-1.amazonaws.com/prefect/trias-jira-bot:0.1.0"
+  debug_env: &debug_env debug
+  dev_env: &dev_env dev
+  prod_env: &prod_env prod
+  tags: &common_tags
+    - "project:trias"
+    - "stage-dev"
+
+build:
+  - prefect.deployments.steps.run_shell_script:
+      id: get-commit-hash
+      script: git rev-parse --short HEAD
+      stream_output: false
+
+pull:
+  - prefect.deployments.steps.set_working_directory:
+      directory: /src
+
+deployments:
+  - name: x-trias-jira-bot-flow-adhoc
+    version: "{{ get-commit-hash.stdout }}"
+    entrypoint: jira_bot/flows/jira_bot_flow.py:flow
+    enforce_parameter_schema: false
+    parameters:
+      jira_issue_key: "TM-122"
+      jira_issue_type: "Epic"
+    work_pool:
+      name: "default-kubernetes-worker"
+      job_variables:
+        image: *image_url
+        auto_remove: true
+        mem_limit: 2g
+        labels:
+          app: jira-bot
+          env: *dev_env
+        image_pull_policy: Always
+        env:
+          ENV: *dev_env
+          RUN_ENV: "cluster"
+          AWS_REGION: "eu-central-1"
+          AWS_DEFAULT_REGION: "eu-central-1"
+          TRIAS_DB: "rds!db-3d5b6fc7-6a0f-4109-84d5-a9c2a2068110"
+    tags: *common_tags
+  
+  - name: x-trias-jira-bot-flow-hourly
+    version: "{{ get-commit-hash.stdout }}"
+    entrypoint: jira_bot/flows/jira_bot_flow.py:flow
+    enforce_parameter_schema: null
+    parameters:
+      jira_issue_key: "TM-122"
+      jira_issue_type: "Epic"
+    work_pool:
+      name: "default-kubernetes-worker"
+      job_variables:
+        image: *image_url
+        auto_remove: true
+        mem_limit: 2g
+        labels:
+          app: jira-bot
+          env: *dev_env
+        image_pull_policy: Always
+        env:
+          ENV: *dev_env
+          RUN_ENV: "cluster"
+          AWS_REGION: "eu-central-1"
+          AWS_DEFAULT_REGION: "eu-central-1"
+          TRIAS_DB: "rds!db-3d5b6fc7-6a0f-4109-84d5-a9c2a2068110"
+    tags: *common_tags
+    schedule:
+      cron: "50 * * * *"

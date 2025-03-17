@@ -1,0 +1,144 @@
+[tool.poetry]
+name = "jira-bot"
+version = "0.1.0"
+description = ""
+authors = ["Andrew Hunt <andrew.hunt@basf.com>",
+"Damon Raeis-Dana <damon.raeis-dana@xarvio.com>",
+"Erik Hass <erik.hass@xarvio.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+prefect = "2.16.9"
+griffe = "0.45.2"
+loguru = "^0.7.2"
+prefect-dask = "^0.2.6"
+prefect-aws = "<0.4.6"
+boto3 = "^1.29.7"
+boto3-stubs = {extras = ["ssm", "secretsmanager"], version = "^1.29.7"}
+awswrangler = {extras = ["secretsmanager"], version = "^3.3.0"}
+structlog = "^23.2.0"
+prefect-docker = "^0.3.11"
+sqlalchemy = "^2.0.20"
+psycopg2-binary = "*"
+referencing = "0.35.1"
+jsonschema-specifications = "2023.12.1"
+jira = "^3.8.0"
+pandas = "^2.2.3"
+geopandas = "^0.14.0"
+contextily = "^1.6.2"
+matplotlib = "^3.9.2"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.2"
+pytest-coverage = "^0.0"
+mypy = "^1.5.1"
+ruff = "^0.0.291"
+pytest-env = "^1.0.1"
+moto = "^4.2.4"
+freezegun = "^1.2.2"
+black = "^23.9.1"
+
+[tool.poetry.group.dev]
+optional = true
+
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+
+
+[[tool.poetry.source]]
+name = "df-pypi"
+url = "http://repo.dfman.info:80/repository/df-pypi/simple"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+branch = true
+source = ["reaper", "tests"]
+
+[tool.coverage.report]
+ignore_errors = false
+show_missing = true
+exclude_lines = [
+  # Have to re-enable the standard pragma
+  "pragma: no cover",
+  # Don't complain about missing debug-only code:s
+  "def __repr__",
+  "if self.debug",
+  # Don't complain if tests don't hit defensive assertion code:
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "AbstractMethodError",
+  # Don't complain if non-runnable code isn't run:
+  "if 0:",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.black]
+target-version = ['py39', 'py310']
+line-length = 119
+exclude = '''
+(
+  | \.egg
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.nox
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | setup.py
+)
+'''
+
+[tool.mypy]
+plugins = [
+  "pydantic.mypy",
+  "sqlalchemy.ext.mypy.plugin"
+]
+python_version = 3.9
+mypy_path = "stubs/"
+check_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = false
+strict_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_incomplete_stub = false
+warn_unreachable = true
+show_column_numbers = true
+allow_redefinition = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+filterwarnings = "ignore::DeprecationWarning"
+addopts = "-ra --strict-markers"
+testpaths = [
+    "tests",
+]
+markers = [
+    "integration",
+    "slow",
+    "postgres",
+]
