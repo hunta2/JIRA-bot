@@ -34,7 +34,7 @@ pytest
 
 ## Author
 
-👤 **x-df-trias**
+👤 
 
 
 ## Show your support
