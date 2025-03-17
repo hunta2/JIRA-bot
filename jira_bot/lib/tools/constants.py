@@ -5,7 +5,7 @@ from awswrangler.secretsmanager import get_secret
 from prefect_aws import AwsCredentials
 
 if os.environ.get("RUN_ENV", "local") == "local":
-    session = boto3.Session(profile_name="xrnd-modeling-dev")
+    session = boto3.Session(profile_name="private")
 else:
     aws_credentials_block = AwsCredentials(region_name="eu-central-1")
     session = boto3.Session(
@@ -15,18 +15,18 @@ else:
     )
 
 XTRIAS_DB_PARAMS = {
-    "host": "trias-postgres.cvgzlp4fem9o.eu-central-1.rds.amazonaws.com",
+    "host": "tr.eu-central-1.rds.amazonaws.com",
     "port": 5432,
     "database": "trias",
 }
 
-JIRA_API_SECRETS = json.loads(get_secret(os.environ.get("JIRA_API_SECRETS", "dev/trias-technical-user"), session))
+JIRA_API_SECRETS = json.loads(get_secret(os.environ.get("JIRA_API_SECRETS", "dev/technical-user"), session))
 JIRA_TOKEN = JIRA_API_SECRETS["jira_token"]
 JIRA_USER = JIRA_API_SECRETS["username"]
 ACTIVE_PROTOCOL_FILTER_ID = 33082
 BOARD_ID = 2450
 PROJECT_ID = 19413
-JIRA_SERVER_URL = "https://jira.digital-farming.com"
+JIRA_SERVER_URL = "https://jira.com"
 PROJECT_FIELD = "project"
 ISSUE_TYPE_FIELD = "issuetype"
 RESOLUTION_FIELD = "resolution"
