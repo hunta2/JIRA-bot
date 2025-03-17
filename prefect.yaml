@@ -5,8 +5,8 @@ prefect-version: 2.16.9
 # the definitions section allows you to define reusable components for your deployments
 definitions:
   image_name: &image_name "trias-jira-bot"
-  registry_url: &registry_url "460093871196.dkr.ecr.eu-central-1.amazonaws.com"
-  image_url: &image_url "460093871196.dkr.ecr.eu-central-1.amazonaws.com/prefect/trias-jira-bot:0.1.0"
+  registry_url: &registry_url "460.dkr.ecr.eu-central-1.amazonaws.com"
+  image_url: &image_url "460.dkr.ecr.eu-central-1.amazonaws.com/prefect/jira-bot:0.1.0"
   debug_env: &debug_env debug
   dev_env: &dev_env dev
   prod_env: &prod_env prod
@@ -47,7 +47,7 @@ deployments:
           RUN_ENV: "cluster"
           AWS_REGION: "eu-central-1"
           AWS_DEFAULT_REGION: "eu-central-1"
-          TRIAS_DB: "rds!db-3d5b6fc7-6a0f-4109-84d5-a9c2a2068110"
+          TRIAS_DB: "rds!db-3d5b6fc7"
     tags: *common_tags
   
   - name: x-trias-jira-bot-flow-hourly
@@ -72,7 +72,7 @@ deployments:
           RUN_ENV: "cluster"
           AWS_REGION: "eu-central-1"
           AWS_DEFAULT_REGION: "eu-central-1"
-          TRIAS_DB: "rds!db-3d5b6fc7-6a0f-4109-84d5-a9c2a2068110"
+          TRIAS_DB: "rds!db-3d5"
     tags: *common_tags
     schedule:
       cron: "50 * * * *"
