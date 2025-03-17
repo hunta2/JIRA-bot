@@ -8,33 +8,13 @@
   </a>
 </p>
 
-> All you need for a FM-driven Jira
+> Am automated tool for creating and moving Jira tickets. Using prefect, an AWS RDS (postgres), and connecting to the JIRA API
 
-### 🏠 [Homepage](https://confluence.digital-farming.com:8443/pages/viewpage.action?spaceKey=DT&title=Data-driven+JIRA)
 
-### ✨ [Demo](demo-url)
-
-## Install
-
-```sh
-install
-```
-
-## Usage
-
-```sh
-useage
-```
-
-## Run tests
-
-```sh
-pytest
-```
 
 ## Author
 
-👤 
+👤 Andrew Hunt
 
 
 ## Show your support
