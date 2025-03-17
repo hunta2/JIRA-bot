@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> Am automated tool for creating and moving Jira tickets. Using prefect, an AWS RDS (postgres), and connecting to the JIRA API
+> Am automated tool for creating and updating Jira tickets. Using prefect, an AWS RDS (postgres), and connecting to the JIRA API
 
 
 
