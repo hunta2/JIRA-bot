@@ -3,7 +3,7 @@ PYPI_USERNAME ?= fm-pypy
 PYPI_URL ?= http://repo.dfman.info:80/repository/df-pypi/simple
 
 APP = trias-jira-bot
-ECR_REPOSITORY ?= 460093871196.dkr.ecr.eu-central-1.amazonaws.com/prefect/
+ECR_REPOSITORY ?= 460.dkr.ecr.eu-central-1.amazonaws.com/prefect/
 APP_VERSION ?= $(shell grep -m 1 version pyproject.toml | tr -s ' ' | tr -d '"' | tr -d "'" | cut -d' ' -f3)
 AWS_ACCOUNT_ID = $(shell aws sts get-caller-identity --query 'Account' --output text)
 AWS_REGION ?= eu-central-1
@@ -137,7 +137,7 @@ docker/build/release: pypi_credentials
 docker/test:
 	@echo "Preload all images required for tests"
 	docker pull postgis/postgis:14-3.3
-	docker pull 614966420484.dkr.ecr.eu-central-1.amazonaws.com/x-df-smartsprayer/fm-mart-db-migration:0.0.1
+	docker pull 61.dkr.ecr.eu-central-1.amazonaws.com/fm-mart-db-migration:0.0.1
 
 	@echo "Run unit tests in docker"
 	docker run --rm \
