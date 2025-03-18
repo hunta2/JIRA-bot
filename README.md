@@ -10,6 +10,7 @@
 
 > Am automated tool for creating and updating Jira tickets. Using prefect, an AWS RDS (postgres), and connecting to the JIRA API
 
+![xrd-trias-flows drawio](https://github.com/user-attachments/assets/dff500a8-e7ea-4fbe-a4d1-5fc59a324cfe)
 
 
 ## Author
