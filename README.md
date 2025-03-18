@@ -23,7 +23,7 @@ Architectural Context
 While the jira-bot is the primary focus of this repository, it operates in a broader ecosystem that includes:
 
     Reaper: An ETL process that cleans raw data and loads it into an AWS RDS (Postgres) database.
-    Gobbler: A tool designed for further aggregation and cleaning of data (planned for future integration).
+    Gobbler: A tool designed for further aggregation and cleaning of data.
 
 The jira-bot leverages production-grade practices, ensuring that it integrates smoothly into our overall system while showcasing robust design and implementation.
 High-Level Workflow Diagram
