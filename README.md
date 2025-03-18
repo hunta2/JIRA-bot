@@ -13,7 +13,7 @@
 Jira-Bot Workflow Portfolio Project
 Overview
 
-This repository showcases the jira-bot workflow—a project that I designed and implemented to integrate API interaction, database checks, and orchestration. Although this code is based on a production system (used internally), this repository serves as a portfolio demonstration of my skills. The repository contains the full implementation of the jira-bot, while the related Reaper (ETL process) and Gobbler (data aggregation and cleaning) flows are part of a larger system managed by multiple teams.
+This repository showcases the jira-bot workflow—a project that I designed and implemented to integrate API interaction, database checks, and orchestration. Although this code is based on a production system (used internally), this repository serves as a portfolio demonstration of my skills. The repository contains the full implementation of the jira-bot, while the related Reaper (ETL process) and Gobbler (data aggregation and cleaning) flows are not included here.
 
 What it does:
 
