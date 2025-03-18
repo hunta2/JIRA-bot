@@ -18,7 +18,7 @@ This repository showcases the jira-bot workflow—a project that I designed and 
 What it does:
 
 The jira-bot is scheduled to run daily every evening. It checks and updates a Jira board based on the status of data stored in an AWS RDS (Postgres) database. The workflow is orchestrated using Prefect, ensuring tasks run reliably on schedule.
-Architectural Context
+
 
 While the jira-bot is the primary focus of this repository, it operates in a broader ecosystem that includes:
 
@@ -35,6 +35,7 @@ Workflow Diagram
 Figure: Overview of the jira-bot workflow and its context within the larger ecosystem (Reaper and Gobbler).
 Workflow Details
 
+![xrd-trias-flows drawio](https://github.com/user-attachments/assets/e5830292-cafb-41ad-a971-2792901713f6)
     Daily Scheduling:
 
     The jira-bot is automatically executed every evening. It checks the relevant Jira board for tickets that require updates based on the latest database state.
@@ -52,7 +53,6 @@ Workflow Details
     The entire process is managed and scheduled using Prefect, providing a reliable, production-ready execution environment.
 
 
-![xrd-trias-flows drawio](https://github.com/user-attachments/assets/e5830292-cafb-41ad-a971-2792901713f6)
 
 
 
