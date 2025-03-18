@@ -8,7 +8,9 @@
   </a>
 </p>
 
-> Am automated tool for creating and updating Jira tickets. Using prefect, an AWS RDS (postgres), and connecting to the JIRA API
+> Am automated tool for creating and updating Jira tickets. 
+
+This is a workflow from a larger database in which Jira-bot checks for data in a database and updates a Jira board (via API) with information on the available data. This workflow allows for efficient tracking of KPIs realted to this situation and stores all jira ticket related information. Using prefect, an AWS RDS (postgres), and connecting to the JIRA API
 
 ![xrd-trias-flows drawio](https://github.com/user-attachments/assets/e5830292-cafb-41ad-a971-2792901713f6)
 
