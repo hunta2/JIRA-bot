@@ -34,8 +34,9 @@ Workflow Diagram
 
 Figure: Overview of the jira-bot workflow and its context within the larger ecosystem (Reaper and Gobbler).
 Workflow Details
+          ![xrd-trias-flows drawio](https://github.com/user-attachments/assets/1e2edfe6-2c65-4dbf-b5fb-5e1037090f62)
 
-![xrd-trias-flows drawio](https://github.com/user-attachments/assets/e5830292-cafb-41ad-a971-2792901713f6)
+    
     Daily Scheduling:
 
     The jira-bot is automatically executed every evening. It checks the relevant Jira board for tickets that require updates based on the latest database state.
