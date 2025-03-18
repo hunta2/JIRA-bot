@@ -55,7 +55,7 @@ Workflow Details
 
 Final Notes
 
-Although the jira-bot workflow is an integral part of our production system, this repository is provided for demonstration purposes to showcase my capabilities in developing robust and production-ready workflows. The implementation reflects best practices in ETL, API integration, and orchestration, making it a valuable asset in my portfolio.
+Although the jira-bot workflow is an integral part of our production system, this repository is provided for demonstration purposes to showcase my capabilities in developing robust and production-ready workflows. The implementation reflects best practices in API integration, and orchestration, making it a valuable asset in my portfolio.
 
 For any questions or further discussion regarding the implementation details, please feel free to contact me.
 
