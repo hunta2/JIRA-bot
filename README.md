@@ -26,11 +26,9 @@ While the jira-bot is the primary focus of this repository, it operates in a bro
     Gobbler: A tool designed for further aggregation and cleaning of data.
 
 The jira-bot leverages production-grade practices, ensuring that it integrates smoothly into our overall system while showcasing robust design and implementation.
-High-Level Workflow Diagram
+
 
 Below is a diagram outlining the scope of the jira-bot workflow in the context of the larger system:
-
-Workflow Diagram
 
 Figure: Overview of the jira-bot workflow and its context within the larger ecosystem (Reaper and Gobbler).
 Workflow Details
