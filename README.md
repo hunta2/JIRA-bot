@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> Am automated tool for creating and updating Jira tickets. 
+> An automated tool for creating and updating Jira tickets. 
 
 Jira-Bot Workflow Portfolio Project
 Overview
